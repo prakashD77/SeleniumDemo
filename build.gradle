@@ -1,0 +1,78 @@
+//apply plugin: 'java'
+//apply plugin: 'idea'
+//
+//group = "org.example"
+//version = "1.0-SNAPSHOT"
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//dependencies {
+//    testImplementation(platform("org.junit:junit-bom:5.9.1"))
+//    testImplementation("org.junit.jupiter:junit-jupiter")
+//
+//    implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
+//    testImplementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
+//
+//    // TestNG
+//    testImplementation 'org.testng:testng:7.6.1'
+//
+//    //Oracle DB Driver
+//    //Move this to artifactory so its not stored locally
+//    implementation files('lib/ojdbc11.jar')
+//    testImplementation 'org.testng:testng:7.1.0'
+//
+//    implementation group: 'com.relevantcodes', name: 'extentreports', version: '2.41.2'
+//    implementation group: 'com.aventstack', name: 'extentreports', version: '5.0.9'
+//    implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+//    implementation group: 'commons-io', name: 'commons-io', version: '2.4'
+//    implementation group: 'com.bettercloud', name: 'vault-java-driver', version: '5.1.0'
+//    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.4'
+//    implementation group: 'org.apache.poi', name: 'poi', version: '5.2.4'
+//    implementation group: 'com.relevantcodes', name: 'extentreports', version: '2.41.2'
+//    implementation group: 'com.aventstack', name: 'extentreports', version: '5.0.9'
+//}
+//
+//tasks.test {
+//    systemProperties(System.getProperties())
+//    useTestNG() {
+//        dependsOn cleanTest
+//        useDefaultListeners = true
+//    }
+//}
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group = "org.example"
+version = "1.0-SNAPSHOT"
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+    implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
+
+
+    // TestNG
+    testImplementation 'org.testng:testng:7.6.1'
+
+    implementation files('lib/ojdbc11.jar')
+
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.4'
+    implementation group: 'com.relevantcodes', name: 'extentreports', version: '2.41.2'
+    implementation group: 'com.aventstack', name: 'extentreports', version: '5.0.9'
+    implementation group: 'com.bettercloud', name: 'vault-java-driver', version: '5.1.0'
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.4'
+    implementation group: 'org.apache.poi', name: 'poi', version: '5.2.4'
+}
+
+tasks.test {
+    useTestNG {
+        useDefaultListeners = true
+    }
+}
